@@ -5,7 +5,7 @@
 #
 # This file is NOT designed (on purpose) to be used as cmake
 # subdir via add_subdirectory()
-# The intention is to provide greater flexibility to users to 
+# The intention is to provide greater flexibility to users to
 # create their own targets using the *_SRCS variables.
 
 set(LWIP_VERSION_MAJOR    "2")
@@ -32,190 +32,190 @@ endif ("${LWIP_VERSION_RC}" STREQUAL "LWIP_RC_RELEASE")
 
 # The minimum set of files needed for lwIP.
 set(lwipcore_SRCS
-    ${LWIP_DIR}/src/core/init.c
-    ${LWIP_DIR}/src/core/def.c
-    ${LWIP_DIR}/src/core/dns.c
-    ${LWIP_DIR}/src/core/inet_chksum.c
-    ${LWIP_DIR}/src/core/ip.c
-    ${LWIP_DIR}/src/core/mem.c
-    ${LWIP_DIR}/src/core/memp.c
-    ${LWIP_DIR}/src/core/netif.c
-    ${LWIP_DIR}/src/core/pbuf.c
-    ${LWIP_DIR}/src/core/raw.c
-    ${LWIP_DIR}/src/core/stats.c
-    ${LWIP_DIR}/src/core/sys.c
-    ${LWIP_DIR}/src/core/altcp.c
-    ${LWIP_DIR}/src/core/altcp_alloc.c
-    ${LWIP_DIR}/src/core/altcp_tcp.c
-    ${LWIP_DIR}/src/core/tcp.c
-    ${LWIP_DIR}/src/core/tcp_in.c
-    ${LWIP_DIR}/src/core/tcp_out.c
-    ${LWIP_DIR}/src/core/timeouts.c
-    ${LWIP_DIR}/src/core/udp.c
+    src/core/init.c
+    src/core/def.c
+    src/core/dns.c
+    src/core/inet_chksum.c
+    src/core/ip.c
+    src/core/mem.c
+    src/core/memp.c
+    src/core/netif.c
+    src/core/pbuf.c
+    src/core/raw.c
+    src/core/stats.c
+    src/core/sys.c
+    src/core/altcp.c
+    src/core/altcp_alloc.c
+    src/core/altcp_tcp.c
+    src/core/tcp.c
+    src/core/tcp_in.c
+    src/core/tcp_out.c
+    src/core/timeouts.c
+    src/core/udp.c
 )
 set(lwipcore4_SRCS
-    ${LWIP_DIR}/src/core/ipv4/autoip.c
-    ${LWIP_DIR}/src/core/ipv4/dhcp.c
-    ${LWIP_DIR}/src/core/ipv4/etharp.c
-    ${LWIP_DIR}/src/core/ipv4/icmp.c
-    ${LWIP_DIR}/src/core/ipv4/igmp.c
-    ${LWIP_DIR}/src/core/ipv4/ip4_frag.c
-    ${LWIP_DIR}/src/core/ipv4/ip4.c
-    ${LWIP_DIR}/src/core/ipv4/ip4_addr.c
+    src/core/ipv4/autoip.c
+    src/core/ipv4/dhcp.c
+    src/core/ipv4/etharp.c
+    src/core/ipv4/icmp.c
+    src/core/ipv4/igmp.c
+    src/core/ipv4/ip4_frag.c
+    src/core/ipv4/ip4.c
+    src/core/ipv4/ip4_addr.c
 )
 set(lwipcore6_SRCS
-    ${LWIP_DIR}/src/core/ipv6/dhcp6.c
-    ${LWIP_DIR}/src/core/ipv6/ethip6.c
-    ${LWIP_DIR}/src/core/ipv6/icmp6.c
-    ${LWIP_DIR}/src/core/ipv6/inet6.c
-    ${LWIP_DIR}/src/core/ipv6/ip6.c
-    ${LWIP_DIR}/src/core/ipv6/ip6_addr.c
-    ${LWIP_DIR}/src/core/ipv6/ip6_frag.c
-    ${LWIP_DIR}/src/core/ipv6/mld6.c
-    ${LWIP_DIR}/src/core/ipv6/nd6.c
+    src/core/ipv6/dhcp6.c
+    src/core/ipv6/ethip6.c
+    src/core/ipv6/icmp6.c
+    src/core/ipv6/inet6.c
+    src/core/ipv6/ip6.c
+    src/core/ipv6/ip6_addr.c
+    src/core/ipv6/ip6_frag.c
+    src/core/ipv6/mld6.c
+    src/core/ipv6/nd6.c
 )
 
 # APIFILES: The files which implement the sequential and socket APIs.
 set(lwipapi_SRCS
-    ${LWIP_DIR}/src/api/api_lib.c
-    ${LWIP_DIR}/src/api/api_msg.c
-    ${LWIP_DIR}/src/api/err.c
-    ${LWIP_DIR}/src/api/if_api.c
-    ${LWIP_DIR}/src/api/netbuf.c
-    ${LWIP_DIR}/src/api/netdb.c
-    ${LWIP_DIR}/src/api/netifapi.c
-    ${LWIP_DIR}/src/api/sockets.c
-    ${LWIP_DIR}/src/api/tcpip.c
+    src/api/api_lib.c
+    src/api/api_msg.c
+    src/api/err.c
+    src/api/if_api.c
+    src/api/netbuf.c
+    src/api/netdb.c
+    src/api/netifapi.c
+    src/api/sockets.c
+    src/api/tcpip.c
 )
 
 # Files implementing various generic network interface functions
 set(lwipnetif_SRCS
-    ${LWIP_DIR}/src/netif/ethernet.c
-    ${LWIP_DIR}/src/netif/bridgeif.c
-    ${LWIP_DIR}/src/netif/bridgeif_fdb.c
-    ${LWIP_DIR}/src/netif/slipif.c
+    src/netif/ethernet.c
+    src/netif/bridgeif.c
+    src/netif/bridgeif_fdb.c
+    src/netif/slipif.c
 )
 
 # 6LoWPAN
 set(lwipsixlowpan_SRCS
-    ${LWIP_DIR}/src/netif/lowpan6_common.c
-    ${LWIP_DIR}/src/netif/lowpan6.c
-    ${LWIP_DIR}/src/netif/lowpan6_ble.c
-    ${LWIP_DIR}/src/netif/zepif.c
+    src/netif/lowpan6_common.c
+    src/netif/lowpan6.c
+    src/netif/lowpan6_ble.c
+    src/netif/zepif.c
 )
 
 # PPP
 set(lwipppp_SRCS
-    ${LWIP_DIR}/src/netif/ppp/auth.c
-    ${LWIP_DIR}/src/netif/ppp/ccp.c
-    ${LWIP_DIR}/src/netif/ppp/chap-md5.c
-    ${LWIP_DIR}/src/netif/ppp/chap_ms.c
-    ${LWIP_DIR}/src/netif/ppp/chap-new.c
-    ${LWIP_DIR}/src/netif/ppp/demand.c
-    ${LWIP_DIR}/src/netif/ppp/eap.c
-    ${LWIP_DIR}/src/netif/ppp/ecp.c
-    ${LWIP_DIR}/src/netif/ppp/eui64.c
-    ${LWIP_DIR}/src/netif/ppp/fsm.c
-    ${LWIP_DIR}/src/netif/ppp/ipcp.c
-    ${LWIP_DIR}/src/netif/ppp/ipv6cp.c
-    ${LWIP_DIR}/src/netif/ppp/lcp.c
-    ${LWIP_DIR}/src/netif/ppp/magic.c
-    ${LWIP_DIR}/src/netif/ppp/mppe.c
-    ${LWIP_DIR}/src/netif/ppp/multilink.c
-    ${LWIP_DIR}/src/netif/ppp/ppp.c
-    ${LWIP_DIR}/src/netif/ppp/pppapi.c
-    ${LWIP_DIR}/src/netif/ppp/pppcrypt.c
-    ${LWIP_DIR}/src/netif/ppp/pppoe.c
-    ${LWIP_DIR}/src/netif/ppp/pppol2tp.c
-    ${LWIP_DIR}/src/netif/ppp/pppos.c
-    ${LWIP_DIR}/src/netif/ppp/upap.c
-    ${LWIP_DIR}/src/netif/ppp/utils.c
-    ${LWIP_DIR}/src/netif/ppp/vj.c
-    ${LWIP_DIR}/src/netif/ppp/polarssl/arc4.c
-    ${LWIP_DIR}/src/netif/ppp/polarssl/des.c
-    ${LWIP_DIR}/src/netif/ppp/polarssl/md4.c
-    ${LWIP_DIR}/src/netif/ppp/polarssl/md5.c
-    ${LWIP_DIR}/src/netif/ppp/polarssl/sha1.c
+    src/netif/ppp/auth.c
+    src/netif/ppp/ccp.c
+    src/netif/ppp/chap-md5.c
+    src/netif/ppp/chap_ms.c
+    src/netif/ppp/chap-new.c
+    src/netif/ppp/demand.c
+    src/netif/ppp/eap.c
+    src/netif/ppp/ecp.c
+    src/netif/ppp/eui64.c
+    src/netif/ppp/fsm.c
+    src/netif/ppp/ipcp.c
+    src/netif/ppp/ipv6cp.c
+    src/netif/ppp/lcp.c
+    src/netif/ppp/magic.c
+    src/netif/ppp/mppe.c
+    src/netif/ppp/multilink.c
+    src/netif/ppp/ppp.c
+    src/netif/ppp/pppapi.c
+    src/netif/ppp/pppcrypt.c
+    src/netif/ppp/pppoe.c
+    src/netif/ppp/pppol2tp.c
+    src/netif/ppp/pppos.c
+    src/netif/ppp/upap.c
+    src/netif/ppp/utils.c
+    src/netif/ppp/vj.c
+    src/netif/ppp/polarssl/arc4.c
+    src/netif/ppp/polarssl/des.c
+    src/netif/ppp/polarssl/md4.c
+    src/netif/ppp/polarssl/md5.c
+    src/netif/ppp/polarssl/sha1.c
 )
 
 # SNMPv3 agent
 set(lwipsnmp_SRCS
-    ${LWIP_DIR}/src/apps/snmp/snmp_asn1.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_core.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_icmp.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_interfaces.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_ip.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_snmp.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_system.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_tcp.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_mib2_udp.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_snmpv2_framework.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_snmpv2_usm.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_msg.c
-    ${LWIP_DIR}/src/apps/snmp/snmpv3.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_netconn.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_pbuf_stream.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_raw.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_scalar.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_table.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_threadsync.c
-    ${LWIP_DIR}/src/apps/snmp/snmp_traps.c
+    src/apps/snmp/snmp_asn1.c
+    src/apps/snmp/snmp_core.c
+    src/apps/snmp/snmp_mib2.c
+    src/apps/snmp/snmp_mib2_icmp.c
+    src/apps/snmp/snmp_mib2_interfaces.c
+    src/apps/snmp/snmp_mib2_ip.c
+    src/apps/snmp/snmp_mib2_snmp.c
+    src/apps/snmp/snmp_mib2_system.c
+    src/apps/snmp/snmp_mib2_tcp.c
+    src/apps/snmp/snmp_mib2_udp.c
+    src/apps/snmp/snmp_snmpv2_framework.c
+    src/apps/snmp/snmp_snmpv2_usm.c
+    src/apps/snmp/snmp_msg.c
+    src/apps/snmp/snmpv3.c
+    src/apps/snmp/snmp_netconn.c
+    src/apps/snmp/snmp_pbuf_stream.c
+    src/apps/snmp/snmp_raw.c
+    src/apps/snmp/snmp_scalar.c
+    src/apps/snmp/snmp_table.c
+    src/apps/snmp/snmp_threadsync.c
+    src/apps/snmp/snmp_traps.c
 )
 
 # HTTP server + client
 set(lwiphttp_SRCS
-    ${LWIP_DIR}/src/apps/http/altcp_proxyconnect.c
-    ${LWIP_DIR}/src/apps/http/fs.c
-    ${LWIP_DIR}/src/apps/http/http_client.c
-    ${LWIP_DIR}/src/apps/http/httpd.c
+    src/apps/http/altcp_proxyconnect.c
+    src/apps/http/fs.c
+    src/apps/http/http_client.c
+    src/apps/http/httpd.c
 )
 
 # MAKEFSDATA HTTP server host utility
 set(lwipmakefsdata_SRCS
-    ${LWIP_DIR}/src/apps/http/makefsdata/makefsdata.c
+    src/apps/http/makefsdata/makefsdata.c
 )
 
 # IPERF server
 set(lwipiperf_SRCS
-    ${LWIP_DIR}/src/apps/lwiperf/lwiperf.c
+    src/apps/lwiperf/lwiperf.c
 )
 
 # SMTP client
 set(lwipsmtp_SRCS
-    ${LWIP_DIR}/src/apps/smtp/smtp.c
+    src/apps/smtp/smtp.c
 )
 
 # SNTP client
 set(lwipsntp_SRCS
-    ${LWIP_DIR}/src/apps/sntp/sntp.c
+    src/apps/sntp/sntp.c
 )
 
 # MDNS responder
 set(lwipmdns_SRCS
-    ${LWIP_DIR}/src/apps/mdns/mdns.c
+    src/apps/mdns/mdns.c
 )
 
 # NetBIOS name server
 set(lwipnetbios_SRCS
-    ${LWIP_DIR}/src/apps/netbiosns/netbiosns.c
+    src/apps/netbiosns/netbiosns.c
 )
 
 # TFTP server files
 set(lwiptftp_SRCS
-    ${LWIP_DIR}/src/apps/tftp/tftp_server.c
+    src/apps/tftp/tftp_server.c
 )
 
 # MQTT client files
 set(lwipmqtt_SRCS
-    ${LWIP_DIR}/src/apps/mqtt/mqtt.c
+    src/apps/mqtt/mqtt.c
 )
 
 # ARM MBEDTLS related files of lwIP rep
 set(lwipmbedtls_SRCS
-    ${LWIP_DIR}/src/apps/altcp_tls/altcp_tls_mbedtls.c
-    ${LWIP_DIR}/src/apps/altcp_tls/altcp_tls_mbedtls_mem.c
-    ${LWIP_DIR}/src/apps/snmp/snmpv3_mbedtls.c
+    src/apps/altcp_tls/altcp_tls_mbedtls.c
+    src/apps/altcp_tls/altcp_tls_mbedtls_mem.c
+    src/apps/snmp/snmpv3_mbedtls.c
 )
 
 # All LWIP files without apps
@@ -244,13 +244,13 @@ set(lwipallapps_SRCS
 )
 
 # Generate lwip/init.h (version info)
-configure_file(${LWIP_DIR}/src/include/lwip/init.h.cmake.in ${LWIP_DIR}/src/include/lwip/init.h)
+configure_file(src/include/lwip/init.h.cmake.in src/include/lwip/init.h)
 
 # Documentation
-set(DOXYGEN_DIR ${LWIP_DIR}/doc/doxygen)
+set(DOXYGEN_DIR doc/doxygen)
 set(DOXYGEN_OUTPUT_DIR output)
-set(DOXYGEN_IN  ${LWIP_DIR}/doc/doxygen/lwip.Doxyfile.cmake.in)
-set(DOXYGEN_OUT ${LWIP_DIR}/doc/doxygen/lwip.Doxyfile)
+set(DOXYGEN_IN  doc/doxygen/lwip.Doxyfile.cmake.in)
+set(DOXYGEN_OUT doc/doxygen/lwip.Doxyfile)
 configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT})
 
 find_package(Doxygen)
@@ -268,12 +268,13 @@ else (DOXYGEN_FOUND)
 endif (DOXYGEN_FOUND)
 
 # lwIP libraries
-add_library(lwipcore EXCLUDE_FROM_ALL ${lwipnoapps_SRCS})
+include_directories(src/include)
+add_library(lwipcore ${lwipnoapps_SRCS})
 target_compile_options(lwipcore PRIVATE ${LWIP_COMPILER_FLAGS})
 target_compile_definitions(lwipcore PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
 target_include_directories(lwipcore PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})
 
-add_library(lwipallapps EXCLUDE_FROM_ALL ${lwipallapps_SRCS})
+add_library(lwipallapps ${lwipallapps_SRCS})
 target_compile_options(lwipallapps PRIVATE ${LWIP_COMPILER_FLAGS})
 target_compile_definitions(lwipallapps PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
 target_include_directories(lwipallapps PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})

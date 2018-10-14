@@ -34,7 +34,6 @@
 
 #define LWIP_TIMEVAL_PRIVATE (0)
 #include <sys/time.h>
-#include <bfdebug.h>
 
 /*
 typedef unsigned    char    u8_t;
@@ -97,7 +96,7 @@ typedef u8_t                sys_prot_t;
 // what display routines are available.
 //
 #ifndef LWIP_PLATFORM_DIAG
-#define LWIP_PLATFORM_DIAG( x ) bfdebug_info(0, x)
+#define LWIP_PLATFORM_DIAG( x )
 #endif
 
 //
@@ -106,9 +105,7 @@ typedef u8_t                sys_prot_t;
 // defined by the user application for DEBUG builds, to abandon execution.
 //
 #ifndef LWIP_PLATFORM_ASSERT
-#define LWIP_PLATFORM_ASSERT( x ) bfdebug_info(0, x)
+#define LWIP_PLATFORM_ASSERT( x )
 #endif
-
-
 
 #endif /* __CC_H__ */
