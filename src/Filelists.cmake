@@ -267,14 +267,33 @@ else (DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the doxygen documentation")
 endif (DOXYGEN_FOUND)
 
-# lwIP libraries
 include_directories(src/include)
-add_library(lwipcore ${lwipnoapps_SRCS})
-target_compile_options(lwipcore PRIVATE ${LWIP_COMPILER_FLAGS})
-target_compile_definitions(lwipcore PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
-target_include_directories(lwipcore PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})
 
-add_library(lwipallapps ${lwipallapps_SRCS})
-target_compile_options(lwipallapps PRIVATE ${LWIP_COMPILER_FLAGS})
-target_compile_definitions(lwipallapps PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
-target_include_directories(lwipallapps PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})
+# lwIP libraries
+## static
+add_library(lwipcorestatic STATIC ${lwipnoapps_SRCS})
+target_compile_options(lwipcorestatic PRIVATE ${LWIP_COMPILER_FLAGS})
+target_compile_definitions(lwipcorestatic PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
+target_include_directories(lwipcorestatic PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})
+set_property(TARGET lwipcorestatic PROPERTY OUTPUT_NAME lwipcore_static)
+
+## shared
+add_library(lwipcoreshared SHARED ${lwipnoapps_SRCS})
+target_compile_options(lwipcoreshared PRIVATE ${LWIP_COMPILER_FLAGS})
+target_compile_definitions(lwipcoreshared PRIVATE ${LWIP_DEFINITIONS}  ${LWIP_MBEDTLS_DEFINITIONS})
+target_include_directories(lwipcoreshared PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MBEDTLS_INCLUDE_DIRS})
+set_property(TARGET lwipcoreshared PROPERTY OUTPUT_NAME lwipcore_shared)
+
+# installation
+install(DIRECTORY src/include/arch DESTINATION include)
+install(DIRECTORY src/include/compat DESTINATION include)
+install(DIRECTORY src/include/lwip DESTINATION include)
+install(DIRECTORY src/include/netif DESTINATION include)
+install(FILES src/include/lwipopts.h DESTINATION include)
+set(INSTALL_LIB_DIR     lib CACHE PATH "Installation directory for libraries")
+mark_as_advanced(INSTALL_LIB_DIR)
+install(TARGETS lwipcore
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION ${INSTALL_LIB_DIR}
+        ARCHIVE DESTINATION ${INSTALL_LIB_DIR})
+
