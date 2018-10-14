@@ -274,7 +274,7 @@ set(INSTALL_LIB_DIR     lib CACHE PATH "Installation directory for libraries")
 mark_as_advanced(INSTALL_LIB_DIR)
 
 ## binaries
-install(TARGETS lwipcoreshared
+install(TARGETS lwipcorestatic
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION ${INSTALL_LIB_DIR}
         ARCHIVE DESTINATION ${INSTALL_LIB_DIR})
