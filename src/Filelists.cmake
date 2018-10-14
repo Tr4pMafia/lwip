@@ -285,6 +285,7 @@ target_include_directories(lwipcoreshared PRIVATE ${LWIP_INCLUDE_DIRS} ${LWIP_MB
 set_property(TARGET lwipcoreshared PROPERTY OUTPUT_NAME lwipcore_shared)
 
 # installation
+## header files
 install(DIRECTORY src/include/arch DESTINATION include)
 install(DIRECTORY src/include/compat DESTINATION include)
 install(DIRECTORY src/include/lwip DESTINATION include)
@@ -292,7 +293,13 @@ install(DIRECTORY src/include/netif DESTINATION include)
 install(FILES src/include/lwipopts.h DESTINATION include)
 set(INSTALL_LIB_DIR     lib CACHE PATH "Installation directory for libraries")
 mark_as_advanced(INSTALL_LIB_DIR)
-install(TARGETS lwipcore
+
+## binaries
+install(TARGETS lwipcoreshared
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION ${INSTALL_LIB_DIR}
+        ARCHIVE DESTINATION ${INSTALL_LIB_DIR})
+install(TARGETS lwipcoreshared
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION ${INSTALL_LIB_DIR}
         ARCHIVE DESTINATION ${INSTALL_LIB_DIR})
