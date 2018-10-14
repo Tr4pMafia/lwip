@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(lwIP)
+project(lwIP C CXX)
 
 set(LWIP_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 include(src/Filelists.cmake)
