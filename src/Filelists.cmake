@@ -52,6 +52,7 @@ set(lwipcore_SRCS
     src/core/tcp_out.c
     src/core/timeouts.c
     src/core/udp.c
+    src/core/arch/sys_arch.c
 )
 set(lwipcore4_SRCS
     src/core/ipv4/autoip.c
@@ -93,7 +94,7 @@ set(lwipnetif_SRCS
     src/netif/ethernet.c
     src/netif/bridgeif.c
     src/netif/bridgeif_fdb.c
-    src/netif/slipif.c
+    #src/netif/slipif.c
 )
 
 # 6LoWPAN

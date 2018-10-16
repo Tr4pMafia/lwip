@@ -4,4 +4,4 @@ cd ..
 zip -r ll lwip
 mv ll.zip lwip
 cd lwip
-sudo docker-compose up -d
+docker-compose down && docker-compose up -d
