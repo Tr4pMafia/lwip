@@ -94,7 +94,7 @@ set(lwipnetif_SRCS
     src/netif/ethernet.c
     src/netif/bridgeif.c
     src/netif/bridgeif_fdb.c
-    src/netif/slipif.c
+    #src/netif/slipif.c
 )
 
 # 6LoWPAN
