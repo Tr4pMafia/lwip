@@ -52,6 +52,7 @@ set(lwipcore_SRCS
     src/core/tcp_out.c
     src/core/timeouts.c
     src/core/udp.c
+    src/core/arch/sys_arch.c
 )
 set(lwipcore4_SRCS
     src/core/ipv4/autoip.c
