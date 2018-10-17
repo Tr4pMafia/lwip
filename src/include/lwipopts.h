@@ -5,3 +5,4 @@
 #define LWIP_SOCKET 0
 #define LWIP_NETCONN 0
 #define LWIP_PPP_API 0
+#define SYS_LIGHTWEIGHT_PROT 0
