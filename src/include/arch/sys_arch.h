@@ -31,4 +31,6 @@
  */
 #ifndef __ARCH_SYS_ARCH_H__
 #define __ARCH_SYS_ARCH_H__
+
+// lwip/src/include/lwip/sys.h
 #endif /* __ARCH_SYS_ARCH_H__ */
