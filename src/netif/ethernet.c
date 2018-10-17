@@ -69,6 +69,42 @@ err_t ethernetif_init(struct netif *netif)
   return ERR_OK;
 }
 
+static void
+low_level_init(struct netif *netif)
+{
+  struct ethernetif *ethernetif = netif->state;
+  // MAC ADDRESS LENGTH
+  netif->hwaddr_len = ETHARP_HWADDR_LEN;
+
+  // SET MAC ADDRESS SET
+  netif->hwaddr[0] = 2;
+  netif->hwaddr[1] = 2;
+  netif->hwaddr[2] = 2;
+  netif->hwaddr[3] = 2;
+  netif->hwaddr[4] = 2;
+  netif->hwaddr[5] = 2;
+
+  /* maximum transfer unit */
+  netif->mtu = 1500;
+
+  /* device capabilities */
+  /* don't set NETIF_FLAG_ETHARP if this device is not an ethernet one */
+  netif->flags = NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_LINK_UP;
+
+  #if LWIP_IPV6 && LWIP_IPV6_MLD
+    /*
+    * For hardware/netifs that implement MAC filtering.
+    * All-nodes link-local is handled by default, so we must let the hardware know
+    * to allow multicast packets in.
+    * Should set mld_mac_filter previously. */
+    if (netif->mld_mac_filter != NULL) {
+      ip6_addr_t ip6_allnodes_ll;
+      ip6_addr_set_allnodes_linklocal(&ip6_allnodes_ll);
+      netif->mld_mac_filter(netif, &ip6_allnodes_ll, NETIF_ADD_MAC_FILTER);
+    }
+  #endif /* LWIP_IPV6 && LWIP_IPV6_MLD */
+}
+
 /**
  * @ingroup lwip_nosys
  * Process received ethernet frames. Using this function instead of directly

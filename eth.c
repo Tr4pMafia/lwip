@@ -331,4 +331,3 @@ ethernetif_init(struct netif *netif)
   return ERR_OK;
 }
 
-#endif /* 0 */
