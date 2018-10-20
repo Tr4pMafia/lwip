@@ -8,6 +8,9 @@ sys_now()
   return 114514;
 }
 
+
+// SYS_LIGHTWEIGHT_PROT
+/*
 sys_prot_t
 sys_arch_protect(void)
 {
@@ -18,4 +21,4 @@ void
 sys_arch_unprotect(sys_prot_t pval)
 {
 
-}
+}*/

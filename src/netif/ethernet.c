@@ -63,12 +63,6 @@
 const struct eth_addr ethbroadcast = {{0xff, 0xff, 0xff, 0xff, 0xff, 0xff}};
 const struct eth_addr ethzero = {{0, 0, 0, 0, 0, 0}};
 
-err_t ethernetif_init(struct netif *netif)
-{
-  // todo: zisso suruzo!!
-  return ERR_OK;
-}
-
 /**
  * @ingroup lwip_nosys
  * Process received ethernet frames. Using this function instead of directly
