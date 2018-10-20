@@ -63,59 +63,6 @@
 const struct eth_addr ethbroadcast = {{0xff, 0xff, 0xff, 0xff, 0xff, 0xff}};
 const struct eth_addr ethzero = {{0, 0, 0, 0, 0, 0}};
 
-static void
-low_level_init(struct netif *netif, u8_t *mac_address)
-{
-  struct ethernetif *ethernetif = netif->state;
-  // MAC ADDRESS LENGTH
-  netif->hwaddr_len = ETHARP_HWADDR_LEN;
-
-  // SET MAC ADDRESS SET
-  for(int i=0; i<ETHARP_HWADDR_LEN; i++){
-    netif->hwaddr[i] = mac_address[i];
-  }
-
-  /* maximum transfer unit */
-  netif->mtu = 1500;
-
-  /* device capabilities */
-  /* don't set NETIF_FLAG_ETHARP if this device is not an ethernet one */
-  netif->flags = NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_LINK_UP;
-
-  #if LWIP_IPV6 && LWIP_IPV6_MLD
-    /*
-    * For hardware/netifs that implement MAC filtering.
-    * All-nodes link-local is handled by default, so we must let the hardware know
-    * to allow multicast packets in.
-    * Should set mld_mac_filter previously. */
-    if (netif->mld_mac_filter != NULL) {
-      ip6_addr_t ip6_allnodes_ll;
-      ip6_addr_set_allnodes_linklocal(&ip6_allnodes_ll);
-      netif->mld_mac_filter(netif, &ip6_allnodes_ll, NETIF_ADD_MAC_FILTER);
-    }
-  #endif /* LWIP_IPV6 && LWIP_IPV6_MLD */
-}
-
-
-/**
- * Should be called at the beginning of the program to set up the
- * network interface. It calls the function low_level_init() to do the
- * actual setup of the hardware.
- *
- * This function should be passed as a parameter to netif_add().
- *
- * @param netif the lwip network interface structure for this ethernetif
- * @return ERR_OK if the loopif is initialized
- *         ERR_MEM if private data couldn't be allocated
- *         any other err_t on error
- */
-err_t ethernetif_init(struct netif *netif, u8_t *mac_address)
-{
-  // todo: zisso suruzo!!
-  low_level_init(netif, mac_address);
-  return ERR_OK;
-}
-
 /**
  * @ingroup lwip_nosys
  * Process received ethernet frames. Using this function instead of directly
